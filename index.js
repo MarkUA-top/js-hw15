@@ -29,8 +29,16 @@ const users = [
   console.log(sortedUsers);
   
   // Task 4
-  const allSkills = Array.from(
-    new Set(users.map(user => user.skills).flat())
-  ).sort();
-  console.log(allSkills);
-  
+const allSkills = [];
+
+users.forEach(user => {
+  user.skills.forEach(skill => {
+    if (!allSkills.includes(skill)) {
+      allSkills.push(skill);
+    }
+  });
+});
+
+allSkills.sort();
+
+console.log(allSkills);
